@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    name: mysql_dev
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filter: stat
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://paotui.gayligayqi.com:3306/news?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      password: paotui502#
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select count(1) from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+mybatis:
+  mapper-locations: classpath:/mapper/news/*.xml
+  type-aliases-package: com.pdd.api.news.dao
